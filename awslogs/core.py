@@ -43,9 +43,9 @@ def boto3_client(aws_profile, aws_access_key_id, aws_secret_access_key, aws_sess
     session = boto3.session.Session(botocore_session=core_session)
     return session.client(
         'logs',
-        aws_access_key_id=aws_access_key_id,
-        aws_secret_access_key=aws_secret_access_key,
-        aws_session_token=aws_session_token,
+        aws_access_key_id=aws_access_key_id or None,
+        aws_secret_access_key=aws_secret_access_key or None,
+        aws_session_token=aws_session_token or None,
         region_name=aws_region or None,
         endpoint_url=aws_endpoint_url or None
     )
